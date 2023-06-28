@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tecudia/hotelInfo.dart';
 import 'package:tecudia/hotels.dart';
 
 class HomePage extends StatefulWidget {
@@ -122,7 +123,14 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HotelDetails(),
+                        ),
+                      );
+                    },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.3,
                       width: MediaQuery.of(context).size.width * 0.9,
