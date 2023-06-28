@@ -9,6 +9,8 @@ class HotelDetails extends StatefulWidget {
 }
 
 class _HotelDetailsState extends State<HotelDetails> {
+  bool pressed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,18 +21,18 @@ class _HotelDetailsState extends State<HotelDetails> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
             image: DecorationImage(
-              image: NetworkImage(
+              image: const NetworkImage(
                   'https://2trip.vn/wp-content/uploads/2021/05/khach-san-gan-bien-bai-sau-vung-tau-1.jpg'),
               fit: BoxFit.contain,
               alignment: Alignment.topCenter,
-              colorFilter: new ColorFilter.mode(
+              colorFilter: ColorFilter.mode(
                   Colors.white38.withOpacity(0.5), BlendMode.darken),
             )),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 36.0, horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(vertical: 36.0, horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -38,9 +40,9 @@ class _HotelDetailsState extends State<HotelDetails> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    shape: CircleBorder(),
-                    backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                    child: Icon(
+                    shape: const CircleBorder(),
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                    child: const Icon(
                       Icons.arrow_back,
                       size: 20,
                     ),
@@ -49,20 +51,26 @@ class _HotelDetailsState extends State<HotelDetails> {
                     children: [
                       FloatingActionButton.small(
                         onPressed: () {},
-                        shape: CircleBorder(),
-                        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                        child: Icon(
+                        shape: const CircleBorder(),
+                        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                        child: const Icon(
                           Icons.share_outlined,
                           size: 20,
                         ),
                       ),
                       FloatingActionButton.small(
-                        onPressed: () {},
-                        shape: CircleBorder(),
-                        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                        child: Icon(
+                        onPressed: () {
+                          pressed = !pressed;
+                        },
+                        shape: const CircleBorder(),
+                        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                        child: pressed ? Icon(
                           CupertinoIcons.heart,
                           size: 20,
+                        ) : Icon(
+                          CupertinoIcons.heart_fill,
+                          size: 20,
+                          color: Colors.red,
                         ),
                       ),
                     ],
@@ -76,13 +84,13 @@ class _HotelDetailsState extends State<HotelDetails> {
                 Container(
                   height: 36,
                   width: 90,
-                  margin: EdgeInsets.symmetric(vertical: 12.0),
+                  margin: const EdgeInsets.symmetric(vertical: 12.0),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(173, 97, 97, 97),
+                    color: const Color.fromARGB(173, 97, 97, 97),
                     borderRadius: BorderRadius.circular(18.0),
                   ),
-                  child: Text(
+                  child: const Text(
                     '124 photos',
                     style: TextStyle(
                       fontSize: 14,
@@ -93,7 +101,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.73,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 0),
+                  padding: const EdgeInsets.fromLTRB(24.0, 32.0, 24.0, 0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(36.0),
@@ -102,14 +110,14 @@ class _HotelDetailsState extends State<HotelDetails> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'BaLi Motel\nVung Tau',
                           style: TextStyle(
                             fontSize: 30.0,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Row(
+                        const Row(
                           children: [
                             Icon(
                               Icons.location_on_outlined,
@@ -130,13 +138,13 @@ class _HotelDetailsState extends State<HotelDetails> {
                           children: [
                             Row(
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.star,
                                   size: 16,
                                   color: Colors.orangeAccent,
                                 ),
                                 RichText(
-                                  text: TextSpan(
+                                  text: const TextSpan(
                                       text: '4.9',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w800,
@@ -155,7 +163,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                               ],
                             ),
                             RichText(
-                              text: TextSpan(
+                              text: const TextSpan(
                                   text: '\$580/',
                                   style: TextStyle(
                                     fontSize: 20.0,
@@ -175,11 +183,11 @@ class _HotelDetailsState extends State<HotelDetails> {
                             ),
                           ],
                         ),
-                        Divider(
+                        const Divider(
                           height: 64.0,
                         ),
                         RichText(
-                          text: TextSpan(
+                          text: const TextSpan(
                               text:
                                   'Set in Vung Tau, 100 meters from Front Beach, BaLi Motel Vung Tau offers accomodation with a garden, private parking and a shared...',
                               style: TextStyle(
@@ -198,11 +206,11 @@ class _HotelDetailsState extends State<HotelDetails> {
                               ]),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 24.0),
+                          padding: const EdgeInsets.symmetric(vertical: 24.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'What we offer',
                                 style: TextStyle(
                                   fontSize: 28.0,
@@ -218,18 +226,18 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     Container(
                                       width: 80.0,
                                       height: 100.0,
-                                      margin: EdgeInsets.fromLTRB(
+                                      margin: const EdgeInsets.fromLTRB(
                                           0, 18.0, 12.0, 12.0),
                                       decoration: BoxDecoration(
                                           // color: Color.fromARGB(255, 255, 255, 255),
                                           border: Border.all(
                                             width: 1.0,
-                                            color: Color.fromARGB(
+                                            color: const Color.fromARGB(
                                                 255, 213, 213, 213),
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(18.0)),
-                                      child: Column(
+                                      child: const Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
@@ -254,18 +262,18 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     Container(
                                       width: 80.0,
                                       height: 100.0,
-                                      margin: EdgeInsets.fromLTRB(
+                                      margin: const EdgeInsets.fromLTRB(
                                           0, 18.0, 12.0, 12.0),
                                       decoration: BoxDecoration(
                                           // color: Color.fromARGB(255, 255, 255, 255),
                                           border: Border.all(
                                             width: 1.0,
-                                            color: Color.fromARGB(
+                                            color: const Color.fromARGB(
                                                 255, 213, 213, 213),
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(18.0)),
-                                      child: Column(
+                                      child: const Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
@@ -290,18 +298,18 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     Container(
                                       width: 80.0,
                                       height: 100.0,
-                                      margin: EdgeInsets.fromLTRB(
+                                      margin: const EdgeInsets.fromLTRB(
                                           0, 18.0, 12.0, 12.0),
                                       decoration: BoxDecoration(
                                           // color: Color.fromARGB(255, 255, 255, 255),
                                           border: Border.all(
                                             width: 1.0,
-                                            color: Color.fromARGB(
+                                            color: const Color.fromARGB(
                                                 255, 213, 213, 213),
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(18.0)),
-                                      child: Column(
+                                      child: const Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
@@ -326,18 +334,18 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     Container(
                                       width: 80.0,
                                       height: 100.0,
-                                      margin: EdgeInsets.fromLTRB(
+                                      margin: const EdgeInsets.fromLTRB(
                                           0, 18.0, 12.0, 12.0),
                                       decoration: BoxDecoration(
                                           // color: Color.fromARGB(255, 255, 255, 255),
                                           border: Border.all(
                                             width: 1.0,
-                                            color: Color.fromARGB(
+                                            color: const Color.fromARGB(
                                                 255, 213, 213, 213),
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(18.0)),
-                                      child: Column(
+                                      child: const Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
@@ -365,7 +373,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                             ],
                           ),
                         ),
-                        Text(
+                        const Text(
                           'Hosted by',
                           style: TextStyle(
                             fontSize: 28.0,
@@ -381,10 +389,10 @@ class _HotelDetailsState extends State<HotelDetails> {
                                 Container(
                                   height: 70,
                                   width: 70,
-                                  margin: EdgeInsets.fromLTRB(0, 12.0, 12.0, 12.0),
+                                  margin: const EdgeInsets.fromLTRB(0, 12.0, 12.0, 12.0),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20.0),
-                                    image: DecorationImage(
+                                    image: const DecorationImage(
                                       image: NetworkImage(
                                           'https://img.freepik.com/premium-photo/portrait-beautiful-asian-woman-smiling-looking-camera-outdoors-student-campus-dur_68060-1758.jpg'),
                                       fit: BoxFit.cover,
@@ -394,7 +402,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Harleen Smith',
                                       style: TextStyle(
                                         fontSize: 18.0,
@@ -407,13 +415,13 @@ class _HotelDetailsState extends State<HotelDetails> {
                                       children: [
                                         Row(
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.star,
                                               size: 16,
                                               color: Colors.orangeAccent,
                                             ),
                                             RichText(
-                                              text: TextSpan(
+                                              text: const TextSpan(
                                                   text: '4.9',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w800,
@@ -438,10 +446,10 @@ class _HotelDetailsState extends State<HotelDetails> {
                               ],
                             ),
                             Container(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16.0),
-                                  gradient: LinearGradient(
+                                  gradient: const LinearGradient(
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,
                                     colors: [
@@ -450,7 +458,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     ],
                                   )
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 CupertinoIcons.chat_bubble_text,
                                 size: 34,
                                 color: Colors.white,
@@ -461,15 +469,15 @@ class _HotelDetailsState extends State<HotelDetails> {
                         Container(
                             height: 70,
                             width: MediaQuery.of(context).size.width * 0.9,
-                            margin: EdgeInsets.symmetric(vertical: 24.0),
+                            margin: const EdgeInsets.symmetric(vertical: 24.0),
                             decoration: BoxDecoration(
                               color: Colors.blue[300],
                               borderRadius: BorderRadius.circular(26.0),
                             ),
                             child: TextButton(
                                 onPressed: () {},
-                                child: Text(
-                                  'Book Now', 
+                                child: const Text(
+                                  'Book Now',
                                     style: TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.white,

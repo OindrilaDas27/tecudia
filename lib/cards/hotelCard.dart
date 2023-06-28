@@ -26,15 +26,15 @@ class _HotelsCardState extends State<HotelsCard> {
     return Container(
       height: 220,
       width: 150,
-      margin: EdgeInsets.fromLTRB(0, 8.0, 12.0, 8.0),
-      padding: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.fromLTRB(0, 8.0, 12.0, 8.0),
+      padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           image: DecorationImage(
             image: NetworkImage(widget.img),
             fit: BoxFit.cover,
             colorFilter: new ColorFilter.mode(
-                Colors.white38.withOpacity(0.5), BlendMode.darken),
+                Colors.black38.withOpacity(0.3), BlendMode.darken),
           )),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -42,7 +42,7 @@ class _HotelsCardState extends State<HotelsCard> {
         children: [
           Text(
             widget.name,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.w700,
               color: Colors.white,
@@ -50,13 +50,13 @@ class _HotelsCardState extends State<HotelsCard> {
           ),
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.location_on_outlined,
                 color: Colors.white,
               ),
               Text(
                 widget.country,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                 ),
               ),
@@ -68,11 +68,11 @@ class _HotelsCardState extends State<HotelsCard> {
               RichText(
                 text: TextSpan(
                     text: widget.price,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w800,
                     ),
                     children: <TextSpan>[
-                      TextSpan(
+                      const TextSpan(
                           text: 'night',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
@@ -81,14 +81,14 @@ class _HotelsCardState extends State<HotelsCard> {
               ),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.star,
                     size: 16,
                     color: Colors.orangeAccent,
                   ),
                   Text(
                     widget.rating,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                     ),
                   )

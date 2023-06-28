@@ -10,9 +10,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<int> pressed = [1, 1, 1, 1, 1];
+  int pressed = -1;
   List<String> type = ['Hotel', 'Flight', 'Place', 'Food'];
-  List<IconData> _icons = [
+  final List<IconData> _icons = [
     Icons.domain_outlined,
     Icons.flight_outlined,
     Icons.location_on_outlined,
@@ -22,19 +22,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
         child: Column(
           children: [
             Container(
               height: 100.0,
-              padding: EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Where you\nwanna go?',
                     style: TextStyle(
                       fontSize: 35,
@@ -44,9 +44,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   FloatingActionButton.small(
                     onPressed: () {},
-                    shape: CircleBorder(),
-                    backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                    child: Icon(
+                    shape: const CircleBorder(),
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                    child: const Icon(
                       Icons.search,
                       size: 30,
                     ),
@@ -56,9 +56,10 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               height: 145.0,
-              padding: EdgeInsets.symmetric(vertical: 4.0),
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
+                itemCount: type.length,
                 itemBuilder: (context, index) {
                   var _type = type[index];
                   var icons = _icons[index];
@@ -66,23 +67,17 @@ class _HomePageState extends State<HomePage> {
                   return GestureDetector(
                     onTap: () {
                       setState(() {
-                      //   pressed[type.indexOf(context)] *= -1;
-                      //   if (pressed[type.indexOf(context) == -1)] {
-                      //     pressed.add(index);
-                      //   }
-                      //   else {
-                      //     pressed.remove(index);
-                      //   }
+                        pressed = index;
                       });
                     },
                     child: Container(
                       width: 80.0,
-                      margin: EdgeInsets.fromLTRB(0, 0, 16.0, 20.0),
+                      margin: const EdgeInsets.fromLTRB(0, 0, 16.0, 20.0),
                       decoration: BoxDecoration(
-                          // color: Color.fromARGB(255, 255, 255, 255),
+                          color: pressed == index ? Colors.blue[300] : Colors.white,
                           border: Border.all(
                             width: 1.0,
-                            color: Color.fromARGB(255, 213, 213, 213),
+                            color: pressed == index ? Colors.transparent : const Color.fromARGB(255, 213, 213, 213),
                           ),
                           borderRadius: BorderRadius.circular(18.0)
                       ),
@@ -92,14 +87,14 @@ class _HomePageState extends State<HomePage> {
                           Icon(
                               icons,
                             size: 36.0,
-                            color: Color.fromARGB(255, 132, 132, 132),
+                            color: pressed == index ? Colors.white : const Color.fromARGB(255, 132, 132, 132),
                           ),
                           Text(
                               _type,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
-                              color: Color.fromARGB(255, 132, 132, 132),
+                              color: pressed == index ? Colors.white : const Color.fromARGB(255, 132, 132, 132),
                             ),
                           ),
                         ],
@@ -109,13 +104,13 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-            Hotels(),
+            const Hotels(),
             Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Hot Deals',
                     style: TextStyle(
                       fontSize: 25.0,
@@ -134,12 +129,12 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.3,
                       width: MediaQuery.of(context).size.width * 0.9,
-                      margin: EdgeInsets.symmetric(vertical: 8.0),
-                      padding: EdgeInsets.all(8.0),
+                      margin: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.0),
                           image: DecorationImage(
-                            image: NetworkImage(
+                            image: const NetworkImage(
                                 'https://2trip.vn/wp-content/uploads/2021/05/khach-san-gan-bien-bai-sau-vung-tau-1.jpg'
                             ),
                             fit: BoxFit.cover,
@@ -154,10 +149,10 @@ class _HomePageState extends State<HomePage> {
                             height: 40,
                             child: FloatingActionButton.extended(
                               onPressed: () {},
-                              shape: RoundedRectangleBorder(
+                              shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(35.0))
                               ),
-                              label: Text(
+                              label: const Text(
                                 '25% OFF',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -171,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Column(
+                              const Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -201,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Row(
+                                  const Row(
                                     children: [
                                       Icon(
                                         Icons.star,
@@ -217,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                                     ],
                                   ),
                                   RichText(
-                                    text: TextSpan(
+                                    text: const TextSpan(
                                         text: "\$580/",
                                         style: TextStyle(
                                           fontWeight: FontWeight.w800,
