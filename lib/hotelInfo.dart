@@ -32,7 +32,8 @@ class _HotelDetailsState extends State<HotelDetails> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 36.0, horizontal: 20.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 36.0, horizontal: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -52,7 +53,8 @@ class _HotelDetailsState extends State<HotelDetails> {
                       FloatingActionButton.small(
                         onPressed: () {},
                         shape: const CircleBorder(),
-                        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                        backgroundColor:
+                            const Color.fromARGB(255, 255, 255, 255),
                         child: const Icon(
                           Icons.share_outlined,
                           size: 20,
@@ -63,15 +65,18 @@ class _HotelDetailsState extends State<HotelDetails> {
                           pressed = !pressed;
                         },
                         shape: const CircleBorder(),
-                        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-                        child: pressed ? Icon(
-                          CupertinoIcons.heart,
-                          size: 20,
-                        ) : Icon(
-                          CupertinoIcons.heart_fill,
-                          size: 20,
-                          color: Colors.red,
-                        ),
+                        backgroundColor:
+                            const Color.fromARGB(255, 255, 255, 255),
+                        child: pressed
+                            ? Icon(
+                                CupertinoIcons.heart_fill,
+                                size: 20,
+                                color: Colors.red,
+                              )
+                            : Icon(
+                                CupertinoIcons.heart,
+                                size: 20,
+                              ),
                       ),
                     ],
                   )
@@ -389,7 +394,8 @@ class _HotelDetailsState extends State<HotelDetails> {
                                 Container(
                                   height: 70,
                                   width: 70,
-                                  margin: const EdgeInsets.fromLTRB(0, 12.0, 12.0, 12.0),
+                                  margin: const EdgeInsets.fromLTRB(
+                                      0, 12.0, 12.0, 12.0),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20.0),
                                     image: const DecorationImage(
@@ -400,18 +406,20 @@ class _HotelDetailsState extends State<HotelDetails> {
                                   ),
                                 ),
                                 Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     const Text(
                                       'Harleen Smith',
                                       style: TextStyle(
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w600
-                                      ),
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w600),
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
                                       children: [
                                         Row(
                                           children: [
@@ -425,15 +433,20 @@ class _HotelDetailsState extends State<HotelDetails> {
                                                   text: '4.9',
                                                   style: TextStyle(
                                                     fontWeight: FontWeight.w800,
-                                                    color: Color.fromARGB(255, 75, 75, 75),
+                                                    color: Color.fromARGB(
+                                                        255, 75, 75, 75),
                                                   ),
                                                   children: <TextSpan>[
                                                     TextSpan(
                                                         text: '(6.8K review)',
                                                         style: TextStyle(
-                                                          fontWeight: FontWeight.normal,
+                                                          fontWeight:
+                                                              FontWeight.normal,
                                                           color: Color.fromARGB(
-                                                              255, 160, 160, 160),
+                                                              255,
+                                                              160,
+                                                              160,
+                                                              160),
                                                         )),
                                                   ]),
                                             ),
@@ -456,8 +469,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                                       Colors.amber,
                                       Colors.deepOrangeAccent,
                                     ],
-                                  )
-                              ),
+                                  )),
                               child: const Icon(
                                 CupertinoIcons.chat_bubble_text,
                                 size: 34,
@@ -467,23 +479,22 @@ class _HotelDetailsState extends State<HotelDetails> {
                           ],
                         ),
                         Container(
-                            height: 70,
-                            width: MediaQuery.of(context).size.width * 0.9,
-                            margin: const EdgeInsets.symmetric(vertical: 24.0),
-                            decoration: BoxDecoration(
-                              color: Colors.blue[300],
-                              borderRadius: BorderRadius.circular(26.0),
-                            ),
-                            child: TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  'Book Now',
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      color: Colors.white,
-                                    ),
-                                )
-                            ),
+                          height: 70,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          margin: const EdgeInsets.symmetric(vertical: 24.0),
+                          decoration: BoxDecoration(
+                            color: Colors.blue[300],
+                            borderRadius: BorderRadius.circular(26.0),
+                          ),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Book Now',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  color: Colors.white,
+                                ),
+                              )),
                         )
                       ],
                     ),
